@@ -1,0 +1,446 @@
+/* css/style.css
+   Gomez IT Services - basic responsive styles
+   Mobile-first approach
+*/
+
+:root {
+  --bg: #f7f9fc;
+  --card: #ffffff;
+  --accent: #0b4a8b; /* dark blue */
+  --muted: #6b7280;
+  --accent-2: #1a365d;
+  --cta: #0b69d2;
+  --radius: 10px;
+  --max-width: 1100px;
+  --container-padding: 16px;
+  --glass: rgba(255, 255, 255, 0.8);
+}
+
+/* Global resets */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #111827;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth; /* basic smooth scrolling */
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px var(--container-padding);
+}
+
+/* Header / Nav */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #e6e9ee;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand .logo {
+  font-weight: 700;
+  color: var(--accent-2);
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#nav-toggle {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* nav links - desktop */
+.nav-links {
+  display: none; /* hidden by default for mobile-first */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin-right: 8px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #0f172a;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.nav-links a:hover {
+  background: rgba(11, 105, 210, 0.08);
+}
+
+/* CTA */
+.btn {
+  display: inline-block;
+  background: var(--cta);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 105, 210, 0.12);
+}
+.btn.outline {
+  background: transparent;
+  color: var(--accent-2);
+  border: 2px solid rgba(11, 105, 210, 0.08);
+}
+.btn.cta {
+  background: var(--accent-2);
+}
+
+/* Hero */
+.hero {
+  padding-top: 92px; /* make room for fixed header */
+  padding-bottom: 48px;
+  background: linear-gradient(180deg, rgba(10, 40, 80, 0.06), rgba(255, 255, 255, 0));
+}
+.hero-overlay {
+  padding: 36px 0;
+}
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+/* hero text */
+.hero-text {
+  max-width: 700px;
+  text-align: center;
+}
+.hero-text h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--accent-2);
+}
+.lead {
+  color: var(--muted);
+  margin-top: 8px;
+}
+.hero-ctas {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.badges {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.badge {
+  background: var(--card);
+  color: var(--accent-2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: 0 6px 18px rgba(14, 44, 84, 0.06);
+}
+
+/* hero image placeholder */
+.hero-image .img-placeholder {
+  width: 260px;
+  height: 160px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #e6eefc, #f7fbff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  border: 1px dashed rgba(11, 105, 210, 0.12);
+  margin-top: 12px;
+}
+
+/* Sections */
+.section {
+  padding: 48px 0;
+}
+.section h2 {
+  margin-top: 0;
+  color: var(--accent-2);
+  font-size: 1.25rem;
+}
+
+/* About / family photos / logos */
+.family-photos {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.family-photos .photo {
+  width: 130px;
+  height: 90px;
+  background: var(--card);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  box-shadow: 0 6px 18px rgba(12, 30, 60, 0.04);
+}
+
+.caption {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.trusted-by .logos {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.trusted-by .logo {
+  width: 120px;
+  height: 48px;
+  background: linear-gradient(180deg, #fff, #f5f7fb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--muted);
+  box-shadow: 0 6px 18px rgba(12, 30, 60, 0.04);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Services cards */
+.service-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+.card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(12, 30, 60, 0.04);
+}
+.card h3 {
+  margin-top: 0;
+}
+.card ul {
+  margin: 10px 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+/* Why list */
+.why-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+}
+.why-list li {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Testimonial cards */
+.test-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+.test-card {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(12, 30, 60, 0.04);
+}
+.quote {
+  margin-top: 14px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ee;
+  background: #fff;
+  font-size: 1rem;
+  width: 100%;
+}
+.contact-info {
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+/* Footer */
+.site-footer {
+  background: #0b1220;
+  color: #fff;
+  padding: 24px 0;
+  margin-top: 36px;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+}
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+/* hidden class + honeypot */
+.hidden {
+  display: none;
+}
+
+/* Reveal animations for scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Larger screens */
+@media (min-width: 720px) {
+  .nav-links {
+    display: flex;
+  }
+  #nav-toggle {
+    display: none;
+  }
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero-text {
+    text-align: left;
+  }
+  .hero-image .img-placeholder {
+    width: 420px;
+    height: 220px;
+  }
+  .service-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .test-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .contact-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .contact-form label {
+    flex: 1;
+    min-width: 220px;
+  }
+  .contact-form textarea {
+    flex-basis: 100%;
+  }
+}
+
+/* Extra large */
+@media (min-width: 1100px) {
+  .container {
+    padding: 32px;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Utility */
+.text-center {
+  text-align: center;
+}
+.small {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
